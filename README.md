@@ -1,4 +1,4 @@
-Minitor (pronounced mine-itor) is an OS X menubar application to monitor dogecoin mining progress via any MPOS (https://github.com/MPOS/php-mpos) API.
+Minitor (pronounced mine-itor) is an OS X menubar application to monitor dogecoin mining progress via any [MPOS](https://github.com/MPOS/php-mpos) API.
 
 Currently it displays your current hashrate in the menubar and your expected payout in the menu.
 
