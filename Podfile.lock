@@ -17,7 +17,7 @@ PODS:
   - AFNetworking/Serialization (2.1.0)
 
 DEPENDENCIES:
-  - AFNetworking
+  - AFNetworking (~> 2.0)
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
