@@ -8,6 +8,8 @@
 
 #import <AFNetworking/AFNetworking.h>
 
+#import "MinitorAPISettingsWindowViewController.h"
+
 #import "MinitorAppDelegate.h"
 
 @implementation MinitorAppDelegate
@@ -31,9 +33,29 @@
     NSMenu *menu = [[NSMenu alloc] init];
     
     [menu addItemWithTitle:@"Payout: 0.00 DOGE" action:nil keyEquivalent:@""];
+    [menu addItemWithTitle:@"API Settings" action:@selector(openSettings:) keyEquivalent:@""];
     [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
     
     return menu;
+}
+
+#pragma mark - Actions
+
+- (IBAction)openSettings:(id)sender
+{
+    NSLog(@"Attempting to show the settings window!");
+    [self.settingsController showWindow:nil];
+}
+
+- (MASPreferencesWindowController *)settingsController {
+    if (!_settingsController) {
+        NSViewController *apiViewController = [[MinitorAPISettingsWindowViewController alloc] init];
+        NSArray *controllers = @[apiViewController];
+        
+        NSString *title = NSLocalizedString(@"API Settings", @"Common title for Preferences window");
+        _settingsController = [[MASPreferencesWindowController alloc] initWithViewControllers:controllers title:title];
+    }
+    return _settingsController;
 }
 
 - (void)refreshStats {
@@ -58,6 +80,20 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+}
+
+#pragma mark -
+
+NSString *const kFocusedAdvancedControlIndex = @"FocusedAdvancedControlIndex";
+
+- (NSInteger)focusedAdvancedControlIndex
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:kFocusedAdvancedControlIndex];
+}
+
+- (void)setFocusedAdvancedControlIndex:(NSInteger)focusedAdvancedControlIndex
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:focusedAdvancedControlIndex forKey:kFocusedAdvancedControlIndex];
 }
 
 @end

@@ -8,8 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import <MASPreferencesWindowController.h>
+
 @interface MinitorAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (strong, nonatomic) NSStatusItem *statusItem;
+@property (strong, nonatomic) MASPreferencesWindowController *settingsController;
 
 @end

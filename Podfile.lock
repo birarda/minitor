@@ -15,11 +15,14 @@ PODS:
   - AFNetworking/Reachability (2.1.0)
   - AFNetworking/Security (2.1.0)
   - AFNetworking/Serialization (2.1.0)
+  - MASPreferences (1.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - MASPreferences
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  MASPreferences: 103fda1283c701dfed5503edbe24b1ab504ed6d9
 
 COCOAPODS: 0.29.0
