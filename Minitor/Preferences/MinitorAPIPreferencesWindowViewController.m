@@ -41,6 +41,8 @@
     [defaults synchronize];
     
     [((MinitorAppDelegate *)[[NSApplication sharedApplication] delegate]) refreshStats];
+    
+    [self.view.window close];
 }
 
 #pragma mark MASPreferencesViewController
