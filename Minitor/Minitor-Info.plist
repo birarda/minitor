@@ -31,7 +31,7 @@
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
-	<string>NSApplication</string>
+	<string>MinitorApplication</string>
 	<key>LSUIElement</key>
 	<true/>
 </dict>

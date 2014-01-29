@@ -16,6 +16,7 @@
 		53B7CC4A18996E9600B600E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53B7CC4918996E9600B600E5 /* Images.xcassets */; };
 		53B7CC7318997EF100B600E5 /* MinitorAPIPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53B7CC7018997EF100B600E5 /* MinitorAPIPreferencesView.xib */; };
 		53B7CC7418997EF100B600E5 /* MinitorAPIPreferencesWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B7CC7218997EF100B600E5 /* MinitorAPIPreferencesWindowViewController.m */; };
+		53B7CC771899836200B600E5 /* MinitorApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B7CC761899836200B600E5 /* MinitorApplication.m */; };
 		DCDEA5E31B9B4FEEB6F9BDA2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B123C1CA5DFF400AB79600C0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,8 @@
 		53B7CC7018997EF100B600E5 /* MinitorAPIPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MinitorAPIPreferencesView.xib; sourceTree = "<group>"; };
 		53B7CC7118997EF100B600E5 /* MinitorAPIPreferencesWindowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinitorAPIPreferencesWindowViewController.h; sourceTree = "<group>"; };
 		53B7CC7218997EF100B600E5 /* MinitorAPIPreferencesWindowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinitorAPIPreferencesWindowViewController.m; sourceTree = "<group>"; };
+		53B7CC751899836200B600E5 /* MinitorApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinitorApplication.h; sourceTree = "<group>"; };
+		53B7CC761899836200B600E5 /* MinitorApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinitorApplication.m; sourceTree = "<group>"; };
 		AC1D49A8A6734EDDA0F22884 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B123C1CA5DFF400AB79600C0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -101,6 +104,8 @@
 				53B7CC4418996E9600B600E5 /* MinitorAppDelegate.m */,
 				53B7CC6F18997EF100B600E5 /* Preferences */,
 				53B7CC3818996E9600B600E5 /* Supporting Files */,
+				53B7CC751899836200B600E5 /* MinitorApplication.h */,
+				53B7CC761899836200B600E5 /* MinitorApplication.m */,
 			);
 			path = Minitor;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53B7CC3E18996E9600B600E5 /* main.m in Sources */,
+				53B7CC771899836200B600E5 /* MinitorApplication.m in Sources */,
 				53B7CC4518996E9600B600E5 /* MinitorAppDelegate.m in Sources */,
 				53B7CC7418997EF100B600E5 /* MinitorAPIPreferencesWindowViewController.m in Sources */,
 			);
