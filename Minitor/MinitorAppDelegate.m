@@ -8,6 +8,7 @@
 
 #import <AFNetworking/AFNetworking.h>
 
+#import "MinitorAboutPreferencesViewController.h"
 #import "MinitorAPIPreferencesWindowViewController.h"
 
 #import "MinitorAppDelegate.h"
@@ -49,7 +50,8 @@
 - (MASPreferencesWindowController *)settingsController {
     if (!_settingsController) {
         NSViewController *apiViewController = [[MinitorAPIPreferencesWindowViewController alloc] init];
-        NSArray *controllers = @[apiViewController];
+        NSViewController *aboutViewController = [[MinitorAboutPreferencesViewController alloc] init];
+        NSArray *controllers = @[apiViewController, aboutViewController];
         
         NSString *title = NSLocalizedString(@"Preferences", @"Common title for Preferences window");
         _settingsController = [[MASPreferencesWindowController alloc] initWithViewControllers:controllers title:title];

@@ -17,6 +17,8 @@
 		53B7CC7318997EF100B600E5 /* MinitorAPIPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53B7CC7018997EF100B600E5 /* MinitorAPIPreferencesView.xib */; };
 		53B7CC7418997EF100B600E5 /* MinitorAPIPreferencesWindowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B7CC7218997EF100B600E5 /* MinitorAPIPreferencesWindowViewController.m */; };
 		53B7CC771899836200B600E5 /* MinitorApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B7CC761899836200B600E5 /* MinitorApplication.m */; };
+		53B7CC7A1899844000B600E5 /* MinitorAboutPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B7CC791899844000B600E5 /* MinitorAboutPreferencesViewController.m */; };
+		53B7CC7C1899849500B600E5 /* MinitorAboutPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53B7CC7B1899849500B600E5 /* MinitorAboutPreferencesView.xib */; };
 		DCDEA5E31B9B4FEEB6F9BDA2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B123C1CA5DFF400AB79600C0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,9 @@
 		53B7CC7218997EF100B600E5 /* MinitorAPIPreferencesWindowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinitorAPIPreferencesWindowViewController.m; sourceTree = "<group>"; };
 		53B7CC751899836200B600E5 /* MinitorApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinitorApplication.h; sourceTree = "<group>"; };
 		53B7CC761899836200B600E5 /* MinitorApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinitorApplication.m; sourceTree = "<group>"; };
+		53B7CC781899844000B600E5 /* MinitorAboutPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinitorAboutPreferencesViewController.h; sourceTree = "<group>"; };
+		53B7CC791899844000B600E5 /* MinitorAboutPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinitorAboutPreferencesViewController.m; sourceTree = "<group>"; };
+		53B7CC7B1899849500B600E5 /* MinitorAboutPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MinitorAboutPreferencesView.xib; sourceTree = "<group>"; };
 		AC1D49A8A6734EDDA0F22884 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B123C1CA5DFF400AB79600C0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -125,9 +130,12 @@
 		53B7CC6F18997EF100B600E5 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				53B7CC7B1899849500B600E5 /* MinitorAboutPreferencesView.xib */,
 				53B7CC7018997EF100B600E5 /* MinitorAPIPreferencesView.xib */,
 				53B7CC7118997EF100B600E5 /* MinitorAPIPreferencesWindowViewController.h */,
 				53B7CC7218997EF100B600E5 /* MinitorAPIPreferencesWindowViewController.m */,
+				53B7CC781899844000B600E5 /* MinitorAboutPreferencesViewController.h */,
+				53B7CC791899844000B600E5 /* MinitorAboutPreferencesViewController.m */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -189,6 +197,7 @@
 			files = (
 				53B7CC7318997EF100B600E5 /* MinitorAPIPreferencesView.xib in Resources */,
 				53B7CC3C18996E9600B600E5 /* InfoPlist.strings in Resources */,
+				53B7CC7C1899849500B600E5 /* MinitorAboutPreferencesView.xib in Resources */,
 				53B7CC4A18996E9600B600E5 /* Images.xcassets in Resources */,
 				53B7CC4218996E9600B600E5 /* Credits.rtf in Resources */,
 				53B7CC4818996E9600B600E5 /* MainMenu.xib in Resources */,
@@ -239,6 +248,7 @@
 				53B7CC771899836200B600E5 /* MinitorApplication.m in Sources */,
 				53B7CC4518996E9600B600E5 /* MinitorAppDelegate.m in Sources */,
 				53B7CC7418997EF100B600E5 /* MinitorAPIPreferencesWindowViewController.m in Sources */,
+				53B7CC7A1899844000B600E5 /* MinitorAboutPreferencesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

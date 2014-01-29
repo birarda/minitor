@@ -47,7 +47,7 @@
 
 - (NSString *)identifier
 {
-    return @"APISettings";
+    return @"APIPreferences";
 }
 
 - (NSImage *)toolbarItemImage
