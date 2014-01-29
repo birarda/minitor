@@ -10,7 +10,7 @@
 
 #import <MASPreferences/MASPreferencesViewController.h>
 
-@interface MinitorAPISettingsWindowViewController : NSViewController <MASPreferencesViewController>
+@interface MinitorAPIPreferencesWindowViewController : NSViewController <MASPreferencesViewController>
 
 
 

@@ -15,4 +15,6 @@
 @property (strong, nonatomic) NSStatusItem *statusItem;
 @property (strong, nonatomic) MASPreferencesWindowController *settingsController;
 
+- (void)refreshStats;
+
 @end

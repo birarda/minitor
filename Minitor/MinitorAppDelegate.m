@@ -8,7 +8,7 @@
 
 #import <AFNetworking/AFNetworking.h>
 
-#import "MinitorAPISettingsWindowViewController.h"
+#import "MinitorAPIPreferencesWindowViewController.h"
 
 #import "MinitorAppDelegate.h"
 
@@ -33,7 +33,8 @@
     NSMenu *menu = [[NSMenu alloc] init];
     
     [menu addItemWithTitle:@"Payout: 0.00 DOGE" action:nil keyEquivalent:@""];
-    [menu addItemWithTitle:@"API Settings" action:@selector(openSettings:) keyEquivalent:@""];
+    [menu addItem:[NSMenuItem separatorItem]];
+    [menu addItemWithTitle:@"Preferences..." action:@selector(openSettings:) keyEquivalent:@""];
     [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
     
     return menu;
@@ -41,45 +42,64 @@
 
 #pragma mark - Actions
 
-- (IBAction)openSettings:(id)sender
-{
-    NSLog(@"Attempting to show the settings window!");
+- (IBAction)openSettings:(id)sender {
     [self.settingsController showWindow:nil];
 }
 
 - (MASPreferencesWindowController *)settingsController {
     if (!_settingsController) {
-        NSViewController *apiViewController = [[MinitorAPISettingsWindowViewController alloc] init];
+        NSViewController *apiViewController = [[MinitorAPIPreferencesWindowViewController alloc] init];
         NSArray *controllers = @[apiViewController];
         
-        NSString *title = NSLocalizedString(@"API Settings", @"Common title for Preferences window");
+        NSString *title = NSLocalizedString(@"Preferences", @"Common title for Preferences window");
         _settingsController = [[MASPreferencesWindowController alloc] initWithViewControllers:controllers title:title];
     }
     return _settingsController;
 }
 
 - (void)refreshStats {
-    NSDictionary *params = @{ @"page": @"api",
-                              @"action": @"getdashboarddata",
-                              @"api_key": @"API_KEY",
-                              @"id": @"USER_ID"};
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    // make sure we have a URL, API key, and user ID
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSMutableSet *contentTypes = [manager.responseSerializer.acceptableContentTypes mutableCopy];
-    [contentTypes addObject:@"text/html"];
-    manager.responseSerializer.acceptableContentTypes = contentTypes;
+    NSMutableString *apiURL = [[defaults valueForKey:@"api-url"] mutableCopy];
+    NSString *apiKey = [defaults valueForKey:@"api-key"];
+    NSString *userID = [defaults valueForKey:@"api-user-id"];
     
-    [manager GET:@"http://doge.poolerino.com/index.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *jsonResponse = (NSDictionary *)responseObject;
+    if (apiURL && apiKey && userID) {
+        NSDictionary *params = @{ @"page": @"api",
+                                  @"action": @"getdashboarddata",
+                                  @"api_key": apiKey,
+                                  @"id": userID};
         
-        _statusItem.title = [NSString stringWithFormat:@"%@ KH/s", [jsonResponse valueForKeyPath:@"getdashboarddata.data.personal.hashrate"]];
-        [[_statusItem.menu itemAtIndex:0] setTitle:[NSString stringWithFormat:@"Payout: %@ DOGE", [jsonResponse valueForKeyPath:@"getdashboarddata.data.personal.estimates.payout"]]];
-         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+        if ([apiURL rangeOfString:@"index.php"].length > 0) {
+            if (![apiURL hasSuffix:@"/"]) {
+                [apiURL appendString:@"/"];
+            }
+            
+            [apiURL appendString:@"index.php"];
+        }
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        
+        NSMutableSet *contentTypes = [manager.responseSerializer.acceptableContentTypes mutableCopy];
+        [contentTypes addObject:@"text/html"];
+        manager.responseSerializer.acceptableContentTypes = contentTypes;
+        
+        [manager GET:apiURL parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *jsonResponse = (NSDictionary *)responseObject;
+            
+            NSDictionary *personalData = [jsonResponse valueForKeyPath:@"getdashboarddata.data.personal"];
+            
+            if (personalData) {
+                _statusItem.title = [NSString stringWithFormat:@"%@ KH/s", [personalData valueForKey:@"hashrate"]];
+                [[_statusItem.menu itemAtIndex:0] setTitle:[NSString stringWithFormat:@"Payout: %@ DOGE", [personalData valueForKeyPath:@"estimates.payout"]]];
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+    }
 }
 
 #pragma mark -
