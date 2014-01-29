@@ -33,7 +33,7 @@
 - (NSMenu *)defaultMenu {
     NSMenu *menu = [[NSMenu alloc] init];
     
-    [menu addItemWithTitle:@"Payout: 0.00 DOGE" action:nil keyEquivalent:@""];
+    [menu addItemWithTitle:@"Payout: 0.00" action:nil keyEquivalent:@""];
     [menu addItem:[NSMenuItem separatorItem]];
     [menu addItemWithTitle:@"Preferences..." action:@selector(openSettings:) keyEquivalent:@""];
     [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
@@ -95,8 +95,9 @@
             NSDictionary *personalData = [jsonResponse valueForKeyPath:@"getdashboarddata.data.personal"];
             
             if (personalData) {
+                NSString *currencyString = [jsonResponse valueForKeyPath:@"getdashboarddata.data.pool.info.currency"];
                 _statusItem.title = [NSString stringWithFormat:@"%@ KH/s", [personalData valueForKey:@"hashrate"]];
-                [[_statusItem.menu itemAtIndex:0] setTitle:[NSString stringWithFormat:@"Payout: %@ DOGE", [personalData valueForKeyPath:@"estimates.payout"]]];
+                [[_statusItem.menu itemAtIndex:0] setTitle:[NSString stringWithFormat:@"Payout: %@%@", [personalData valueForKeyPath:@"estimates.payout"], (currencyString ? [NSString stringWithFormat:@" %@", currencyString] : nil)]];
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
