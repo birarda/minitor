@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MinitorAboutPreferencesViewController">
             <connections>
+                <outlet property="githubTextField" destination="bEc-7T-M8d" id="nzE-KF-ciT"/>
                 <outlet property="view" destination="1" id="2"/>
             </connections>
         </customObject>
@@ -16,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wrg-M3-RHm">
-                    <rect key="frame" x="157" y="120" width="145" height="27"/>
+                    <rect key="frame" x="157" y="125" width="145" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Minitor (v0.1)" id="gNO-9e-z77">
                         <font key="font" metaFont="systemBold" size="17"/>
@@ -25,7 +26,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ISt-rD-pJc">
-                    <rect key="frame" x="141" y="105" width="176" height="17"/>
+                    <rect key="frame" x="141" y="110" width="176" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Stephen Birarda" id="QMM-dx-2Kc">
                         <font key="font" size="11" name="LucidaGrande"/>
@@ -34,7 +35,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="g3A-SQ-IGI">
-                    <rect key="frame" x="163" y="36" width="132" height="17"/>
+                    <rect key="frame" x="163" y="38" width="132" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Donations (DOGE)" id="YA8-pP-Jux">
                         <font key="font" metaFont="systemBold"/>
@@ -42,17 +43,8 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="t5f-b2-tnX">
-                    <rect key="frame" x="114" y="61" width="231" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="https://github.com/birarda/minitor" id="ErO-dC-TMU">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="LTa-sJ-Bxr">
-                    <rect key="frame" x="133" y="80" width="193" height="17"/>
+                    <rect key="frame" x="133" y="85" width="193" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Bugs / Feature Requests" id="tcM-0Y-fxl">
                         <font key="font" metaFont="systemBold"/>
@@ -61,12 +53,21 @@
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="kAT-zg-eAb">
-                    <rect key="frame" x="88" y="12" width="282" height="22"/>
+                    <rect key="frame" x="88" y="15" width="282" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" alignment="center" title="DNVrUjepAPqe9qpFGDWjmECxYPrVxd9vqa" id="cPx-OR-46h">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="bEc-7T-M8d" customClass="HyperlinkTextField">
+                    <rect key="frame" x="108" y="61" width="243" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" alignment="center" title="https://github.com/birarda/minitor" id="8b1-14-RMI">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
