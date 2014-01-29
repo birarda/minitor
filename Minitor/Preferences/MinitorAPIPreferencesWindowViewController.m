@@ -23,6 +23,16 @@
     return [super initWithNibName:@"MinitorAPIPreferencesView" bundle:nil];
 }
 
+- (void)loadView {
+    [super loadView];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [self.urlTextField setStringValue:[defaults valueForKey:@"api-url"]];
+    [self.apiKeyTextField setStringValue:[defaults valueForKey:@"api-key"]];
+    [self.userIDTextField setStringValue:[defaults valueForKey:@"api-user-id"]];
+}
+
 - (IBAction)saveButtonPressed:(id)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.urlTextField.stringValue forKey:@"api-url"];
