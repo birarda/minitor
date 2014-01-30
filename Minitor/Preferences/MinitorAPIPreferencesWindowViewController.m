@@ -28,9 +28,9 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    [self.urlTextField setStringValue:[defaults valueForKey:@"api-url"]];
-    [self.apiKeyTextField setStringValue:[defaults valueForKey:@"api-key"]];
-    [self.userIDTextField setStringValue:[defaults valueForKey:@"api-user-id"]];
+    if ([defaults valueForKey:@"api-url"]) [self.urlTextField setStringValue:[defaults valueForKey:@"api-url"]];
+    if ([defaults valueForKey:@"api-key"]) [self.apiKeyTextField setStringValue:[defaults valueForKey:@"api-key"]];
+    if ([defaults valueForKey:@"api-user-id"]) [self.userIDTextField setStringValue:[defaults valueForKey:@"api-user-id"]];
 }
 
 - (IBAction)saveButtonPressed:(id)sender {
